@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterControl : MonoBehaviour
 {
@@ -17,6 +18,12 @@ public class CharacterControl : MonoBehaviour
     {
         Move();
         Jump();
+        if(transform.position.y <= -3f)
+        {
+            Destroy(rb);
+            Invoke("PlayerDeath", 5f);
+            Destroy(this.GetComponent<CharacterControl>());
+        }
     }
 
     void Move()
@@ -41,6 +48,11 @@ public class CharacterControl : MonoBehaviour
     public void SetGroundedState(bool _grounded)
     {
         grounded = _grounded;
+    }
+
+    void PlayerDeath()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 }

@@ -26,7 +26,8 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject.GetComponent<CharacterControl>());
+            Destroy(collision.gameObject.GetComponent<Rigidbody>());
             Invoke("PlayerDeath", 5f);
         }
         walkspeed = -walkspeed;
