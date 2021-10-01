@@ -55,6 +55,6 @@ public class Enemy : MonoBehaviour
     }
     void PlayerDeath()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(1);
     }
 }

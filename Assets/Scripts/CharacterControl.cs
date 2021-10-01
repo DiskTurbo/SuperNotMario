@@ -8,10 +8,12 @@ public class CharacterControl : MonoBehaviour
     Rigidbody rb;
     public float walkspeed, runspeed, jumpforce;
     public bool grounded;
+    bool isPaused;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        isPaused = false;
     }
     // Update is called once per frame
     void Update()
@@ -20,9 +22,14 @@ public class CharacterControl : MonoBehaviour
         Jump();
         if(transform.position.y <= -3f)
         {
-            Destroy(rb);
-            Invoke("PlayerDeath", 5f);
-            Destroy(this.GetComponent<CharacterControl>());
+            PlayerDeath();
+        }
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            if (isPaused == false)
+                Resume();
+            else
+                Pause();
         }
     }
 
@@ -52,7 +59,17 @@ public class CharacterControl : MonoBehaviour
 
     void PlayerDeath()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(1);
+    }
+
+    void Pause()
+    {
+        Time.timeScale = 0;
+    }
+
+    void Resume()
+    {
+        Time.timeScale = 1;
     }
 
 }
