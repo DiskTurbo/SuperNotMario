@@ -25,3 +25,5 @@ GitHub Repository: https://github.com/DiskTurbo/SuperNotMario (You're here right
 **All code is my own.** I think you'll be able to tell.
 
 _Please enjoy._
+
+![Core Game Loop Flowchart](https://i.imgur.com/wtrtMbN.png)
