@@ -26,7 +26,7 @@ public class CharacterControl : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            if (isPaused == false)
+            if (isPaused == true)
                 Resume();
             else
                 Pause();
