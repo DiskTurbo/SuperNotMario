@@ -1,16 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
-    public float walkspeed;
+    public static float walkspeed;
     Rigidbody rb;
     bool activated;
+
+    [DllImport("INFR3110-F2021")]
+    private static extern void SetBossStats(float x, float y, float speed);
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        SetBossStats(this.transform.localScale.x, this.transform.localScale.y, walkspeed);
     }
     // Update is called once per frame
     void FixedUpdate()
