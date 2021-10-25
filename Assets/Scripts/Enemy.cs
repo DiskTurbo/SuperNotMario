@@ -4,6 +4,23 @@ using System;
 using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+public interface IEnemy
+{
+    string GetEnemyType();
+}
+
+public class SmallEnemy : IEnemy
+{
+    public string GetEnemyType()
+    {
+        return "Small Enemy";
+    }
+}
+public enum PersonType
+{
+    Rural,
+    Urban
+}
 
 public class Enemy : MonoBehaviour
 {
@@ -27,7 +44,7 @@ public class Enemy : MonoBehaviour
     }
     public void Die()
     {
-        Destroy(this);
+        Destroy(this, 5f);
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -35,7 +52,7 @@ public class Enemy : MonoBehaviour
         {
             Destroy(collision.gameObject.GetComponent<CharacterControl>());
             Destroy(collision.gameObject.GetComponent<Rigidbody>());
-            Invoke("Die", 5f);
+            Invoke("PlayerDeath", 5f);
         }
         walkspeed = -walkspeed;
     }

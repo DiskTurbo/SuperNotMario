@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class CharacterControl : MonoBehaviour
 {
+    public static CharacterControl PlayerInstance { get; private set; }
+
     Rigidbody rb;
     public float walkspeed, runspeed, jumpforce;
     public bool grounded;
@@ -12,6 +14,14 @@ public class CharacterControl : MonoBehaviour
 
     private void Start()
     {
+        if (PlayerInstance != null && PlayerInstance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            PlayerInstance = this;
+        }
         rb = GetComponent<Rigidbody>();
         isPaused = false;
     }

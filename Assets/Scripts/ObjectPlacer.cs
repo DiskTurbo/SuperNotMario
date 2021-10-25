@@ -5,10 +5,12 @@ public class ObjectPlacer : MonoBehaviour
     private Grid g;
     public GameObject[] objectArr, imgArr;
     int currentObj = 0;
+    ActivationArea activationArea;
 
     private void Awake()
     {
         g = FindObjectOfType<Grid>();
+        activationArea = FindObjectOfType<ActivationArea>();
     }
 
     private void Update()
@@ -20,7 +22,11 @@ public class ObjectPlacer : MonoBehaviour
 
             if (Physics.Raycast(ray, out hitInfo))
             {
-                PlaceObjectNear(hitInfo.point);
+                Debug.Log(hitInfo.transform.tag);
+                if (hitInfo.transform.tag != "Object" || hitInfo.transform.tag != "Enemy")
+                {
+                    PlaceObjectNear(hitInfo.point);
+                }
             }
         }
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)

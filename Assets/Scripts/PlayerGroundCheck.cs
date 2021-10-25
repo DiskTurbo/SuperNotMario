@@ -19,6 +19,7 @@ public class PlayerGroundCheck : MonoBehaviour
         }
         else if (other.gameObject.tag == "Enemy")
         {
+            Destroy(other.gameObject, 3f);
             Destroy(other);
             charControl.GetComponent<Rigidbody>().AddForce(0f, 450f, 0f);
         }
@@ -42,6 +43,7 @@ public class PlayerGroundCheck : MonoBehaviour
         }
         else if (other.gameObject.tag == "Enemy")
         {
+            Destroy(other.gameObject, 3f);
             Destroy(other);
         }
         charControl.SetGroundedState(true);
