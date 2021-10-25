@@ -6,18 +6,19 @@ using UnityEngine.UI;
 public class Money : MonoBehaviour
 {
     bool isHit;
-    [SerializeField] Text moneycount;
-    static int count;
+    Text moneycount;
+    public static int count;
     // Start is called before the first frame update
     void Start()
     {
+        moneycount = FindObjectOfType<Text>();
         isHit = false;
         count = 0;
         moneycount.text = "Money: " + count;
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Head" && isHit == false)
+        if (other.gameObject.name == "Head" && isHit == false && Build.buildMode == false)
         {
             isHit = true;
             count++;
