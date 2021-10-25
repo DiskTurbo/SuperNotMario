@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
-    public static float walkspeed;
+    public float walkspeed = 16f;
     Rigidbody rb;
     bool activated;
 
@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        SetBossStats(this.transform.localScale.x, this.transform.localScale.y, walkspeed);
+        //SetBossStats(this.transform.localScale.x, this.transform.localScale.y, walkspeed);
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
         {
             Destroy(collision.gameObject.GetComponent<CharacterControl>());
             Destroy(collision.gameObject.GetComponent<Rigidbody>());
-            Invoke("PlayerDeath", 5f);
+            Invoke("Die", 5f);
         }
         walkspeed = -walkspeed;
     }

@@ -3,7 +3,7 @@ using UnityEngine;
 public class ObjectPlacer : MonoBehaviour
 {
     private Grid g;
-    public GameObject[] objectArr;
+    public GameObject[] objectArr, imgArr;
     int currentObj = 0;
 
     private void Awake()
@@ -40,6 +40,22 @@ public class ObjectPlacer : MonoBehaviour
         {
             currentObj = objectArr.Length - 1;
         }
+        for(int i = 0; i < objectArr.Length; i++)
+        {
+            if(i == currentObj)
+            {
+                imgArr[i].SetActive(true);
+            }
+            else
+            {
+                imgArr[i].SetActive(false);
+            }
+        }
+    }
+
+    public void SetObjectSpawn(int choice)
+    {
+        choice = currentObj;
     }
 
     private void PlaceObjectNear(Vector3 clickPoint)

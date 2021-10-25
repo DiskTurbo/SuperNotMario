@@ -8,6 +8,8 @@ public class Build : MonoBehaviour
     [SerializeField] GameObject g;
     [SerializeField] GameObject objPlace;
     [SerializeField] GameObject player;
+    [SerializeField] GameObject buildUI;
+    [SerializeField] GameObject buttons;
     Text moneycount;
     public static bool buildMode = false;
     // Start is called before the first frame update
@@ -24,7 +26,8 @@ public class Build : MonoBehaviour
             buildMode = !buildMode;
             g.SetActive(buildMode);
             objPlace.SetActive(buildMode);
-            player.GetComponent<Rigidbody>().useGravity = !buildMode;
+            buildUI.SetActive(buildMode);
+            buttons.SetActive(buildMode);
         }
         if (buildMode == true)
         {
