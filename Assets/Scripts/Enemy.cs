@@ -16,11 +16,6 @@ public class SmallEnemy : IEnemy
         return "Small Enemy";
     }
 }
-public enum PersonType
-{
-    Rural,
-    Urban
-}
 
 public class Enemy : MonoBehaviour
 {

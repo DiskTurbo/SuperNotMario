@@ -14251,7 +14251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1.21
-  isGridVisible: 0
+  isGridVisible: 1
 --- !u!4 &1469281955
 Transform:
   m_ObjectHideFlags: 0
