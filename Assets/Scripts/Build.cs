@@ -15,7 +15,7 @@ public class Build : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        moneycount = FindObjectOfType<Text>();
+        moneycount = GameObject.FindGameObjectWithTag("Money Count").GetComponent<Text>();
     }
 
     // Update is called once per frame

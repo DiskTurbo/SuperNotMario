@@ -13,6 +13,11 @@ public class PlacedObject : MonoBehaviour
         g = FindObjectOfType<Grid>();
         activationArea = FindObjectOfType<ActivationArea>();
     }
+    private void Start()
+    {
+        g = FindObjectOfType<Grid>();
+        activationArea = FindObjectOfType<ActivationArea>();
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(1) && g.isActiveAndEnabled)

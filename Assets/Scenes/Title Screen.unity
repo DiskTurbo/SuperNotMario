@@ -17308,8 +17308,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "2021\xA9 not that other company\nRobson Basha - 100750867\nAlan Dong -
-    100752362"
+  m_Text: "2021\xA9 not that other company\nRobson Basha - 100750867"
 --- !u!222 &2101040885
 CanvasRenderer:
   m_ObjectHideFlags: 0
