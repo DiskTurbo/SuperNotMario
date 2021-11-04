@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.SceneManagement;
 public interface IEnemy
 {
@@ -22,9 +23,6 @@ public class Enemy : MonoBehaviour
     public float walkspeed = 16f;
     Rigidbody rb;
     bool activated;
-
-    [DllImport("INFR3110-F2021")]
-    private static extern void SetBossStats(float x, float y, float speed);
 
     private void Start()
     {

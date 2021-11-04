@@ -67,7 +67,14 @@ public class ObjectPlacer : MonoBehaviour
     private void PlaceObjectNear(Vector3 clickPoint)
     {
         var finalPosition = g.GetPoint(clickPoint);
-        GameObject item = Instantiate(objectArr[currentObj]);
-        item.transform.position = finalPosition;
+        if (objectArr[currentObj].gameObject.tag == "Enemy")
+        {
+            ObjectPooler.Instance.SpawnFromPool("Enemy", finalPosition, Quaternion.identity);
+        }
+        else
+        {
+            GameObject item = Instantiate(objectArr[currentObj]);
+            item.transform.position = finalPosition;
+        }
     }
 }
